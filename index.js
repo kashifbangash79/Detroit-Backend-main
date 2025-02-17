@@ -24,7 +24,15 @@ mongoose.connect(process.env.MONGO_URI)
     .catch(err => console.error(err));
 
 const app = express();
-app.use(cors()); // Enable CORS for all routes
+// Allow requests from your frontend
+app.use(
+  cors({
+    origin: "https://detroit-epic-frontend.vercel.app", // Allow only your frontend
+    methods: "GET,POST,PUT,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+    credentials: true, // Allow cookies if using authentication
+  })
+);
 app.use(bodyParser.json());
 console.log(process.env.SESSION_SECRET);
 // Session setup (required for Passport)
