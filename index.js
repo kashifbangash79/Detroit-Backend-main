@@ -27,7 +27,7 @@ const app = express();
 // Allow requests from your frontend
 app.use(
   cors({
-    origin: "https://detroit-epic-frontend.vercel.app", // Allow only your frontend
+    origin: "https://detroit-epic-frontend-eight.vercel.app", // Allow only your frontend
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true, // Allow cookies if using authentication
