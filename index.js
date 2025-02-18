@@ -27,12 +27,13 @@ const app = express();
 // Allow requests from your frontend
 app.use(
   cors({
-    origin: "https://detroit-epic-frontend-eight.vercel.app", // Allow only your frontend
+    origin: "*", // Allow requests from any origin
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type,Authorization",
-    credentials: true, // Allow cookies if using authentication
+    credentials: true, // Allow cookies if needed
   })
 );
+
 app.use(bodyParser.json());
 console.log(process.env.SESSION_SECRET);
 // Session setup (required for Passport)
