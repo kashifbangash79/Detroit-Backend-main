@@ -25,14 +25,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 const app = express();
 // Allow requests from your frontend
-app.use(
-  cors({
-    origin: "*", // Allow requests from any origin
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-    credentials: true, // Allow cookies if needed
-  })
-);
+app.use(cors());
 
 app.use(bodyParser.json());
 console.log(process.env.SESSION_SECRET);
